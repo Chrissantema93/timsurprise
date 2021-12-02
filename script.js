@@ -31,6 +31,9 @@ let fouteAntwoordenAudio = [
   "Dag.mp3"
 ];
 
+goedeAntwoordenAudioTemp = []
+fouteAntwoordenAudioTemp = []
+
 let correctQuestions = 0
 
 startButton.addEventListener("click", startGame);
@@ -50,6 +53,8 @@ function startGame() {
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
   correctQuestions = 0
+  goedeAntwoordenAudioTemp = goedeAntwoordenAudio
+  fouteAntwoordenAudioTemp = fouteAntwoordenAudio
   setNextQuestion();
 }
 
@@ -90,24 +95,24 @@ function selectAnswer(e) {
         audio.play();
       } else {
     randomGeluid =
-      goedeAntwoordenAudio[
-        Math.floor(Math.random() * goedeAntwoordenAudio.length)
+      goedeAntwoordenAudioTemp[
+        Math.floor(Math.random() * goedeAntwoordenAudioTemp.length)
       ];
     let audio = new Audio(`media/${randomGeluid}`);
     audio.play();
-    goedeAntwoordenAudio = goedeAntwoordenAudio.filter(
+    goedeAntwoordenAudioTemp = goedeAntwoordenAudioTemp.filter(
       (x) => x !== randomGeluid
     );}
     correctQuestions++
 
   } else {
     randomGeluid =
-      fouteAntwoordenAudio[
-        Math.floor(Math.random() * fouteAntwoordenAudio.length)
+      fouteAntwoordenAudioTemp[
+        Math.floor(Math.random() * fouteAntwoordenAudioTemp.length)
       ];
     let audio = new Audio(`media/${randomGeluid}`);
     audio.play();
-    fouteAntwoordenAudio = fouteAntwoordenAudio.filter(
+    fouteAntwoordenAudioTemp = fouteAntwoordenAudioTemp.filter(
       (x) => x !== randomGeluid
     );
   }
@@ -123,7 +128,7 @@ function selectAnswer(e) {
         startButton.innerText = "Gefeliciteerd! u heeft alle vragen goed beantwoord";
         startButton.classList.remove("hide");
       } else {
-    startButton.innerText = "Opnieuw beginnen";
+    startButton.innerText = "Helaas je had niet alle vragen goed: Opnieuw beginnen";
     startButton.classList.remove("hide");
       }
   }
