@@ -112,6 +112,13 @@
     width:100%;
     max-width:300px;
     height:100%;
-    max-height:100px;
+    max-height:200px;
+}
+.container {
+  width:350px;
+  font-size:12px;
+}
+.btn {
+  padding: 5px 10px;
 }
 }
