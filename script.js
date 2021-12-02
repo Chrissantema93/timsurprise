@@ -15,8 +15,7 @@ let goedeAntwoordenAudio = [
     "Can You Hear Me.mp3",
   "U ken doorgaan.mp3",
   "We zijn net de soos, kinderen van de soos.mp3",
-  "Denkt erom hoor, dat ik er 1 ben.mp3",
-  "Kijk mooi weer spelen ken iedereen wel.mp3"
+  "Denkt erom hoor, dat ik er 1 ben.mp3"
 
 ];
 let fouteAntwoordenAudio = [
@@ -84,8 +83,13 @@ function resetState() {
 
 function selectAnswer(e) {
   const selectedButton = e.target;
+  console.log(e.target.innerText)
   const correct = selectedButton.dataset.correct;
   if (correct) {
+      if(e.target.innerText === "5 euros"){
+        let audio = new Audio("media/5 Euro's.. Op Je Muil, Gauw!.mp3");
+        audio.play();
+      } else {
     randomGeluid =
       goedeAntwoordenAudio[
         Math.floor(Math.random() * goedeAntwoordenAudio.length)
@@ -94,8 +98,9 @@ function selectAnswer(e) {
     audio.play();
     goedeAntwoordenAudio = goedeAntwoordenAudio.filter(
       (x) => x !== randomGeluid
-    );
+    );}
     correctQuestions++
+
   } else {
     randomGeluid =
       fouteAntwoordenAudio[
