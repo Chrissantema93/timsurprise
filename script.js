@@ -3,6 +3,7 @@ const nextButton = document.getElementById("next-btn");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
+const instructies = document.getElementById("instructies");
 
 let shuffledQuestions, currentQuestionIndex;
 
@@ -44,6 +45,33 @@ nextButton.addEventListener("click", () => {
   setNextQuestion();
 });
 
+
+var slideshows = document.querySelectorAll('[data-component="slideshow"]');
+  
+// Apply to all slideshows that you define with the markup wrote
+slideshows.forEach(initSlideShow);
+
+function initSlideShow(slideshow) {
+
+  var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`); // Get an array of slides
+
+  var index = 0, time = 5000;
+  slides[index].classList.add('active');  
+  
+  setInterval( () => {
+    slides[index].classList.remove('active');
+    
+    //Go over each slide incrementing the index
+    index++;
+    
+    // If you go over all slides, restart the index to show the first slide and start again
+    if (index === slides.length) index = 0; 
+    
+    slides[index].classList.add('active');
+
+  }, time);
+}
+
 function geefEensAntwoord() {
   let audio = new Audio("media/Geef eens antwoord.mp3");
   audio.play();
@@ -51,6 +79,7 @@ function geefEensAntwoord() {
 
 function startGame() {
   startButton.classList.add("hide");
+  instructies.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
@@ -66,7 +95,7 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
-     timeout = setTimeout(geefEensAntwoord, 5000)
+     timeout = setTimeout(geefEensAntwoord, 10000)
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
     const button = document.createElement("button");
@@ -129,7 +158,7 @@ function selectAnswer(e) {
     nextButton.classList.remove("hide");
   } else {
       if(correctQuestions === 10) {
-        startButton.innerText = "Gefeliciteerd! u heeft alle vragen goed beantwoord";
+        startButton.innerText = "Gefeliciteerd! u heeft alle vragen goed beantwoord. Uw kados kunt u vinden in de bibliotheek.";
         startButton.classList.remove("hide");
       } else {
     startButton.innerText = "Helaas je had niet alle vragen goed: Opnieuw beginnen";
