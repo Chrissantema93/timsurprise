@@ -19,6 +19,7 @@
     justify-content: center;
     align-items: center;
     background-color: hsl(var(--hue), 100%, 20%);
+    font-size:20px;
   }
   
   body.correct {
@@ -30,7 +31,7 @@
   }
   
   .container {
-    width: 800px;
+    width: 1000px;
     max-width: 80%;
     background-color: white;
     border-radius: 5px;
@@ -50,7 +51,7 @@
     border: 1px solid hsl(var(--hue), 100%, 30%);
     background-color: hsl(var(--hue), 100%, 50%);
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 15px 30px;
     color: white;
     outline: none;
   }
