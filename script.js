@@ -122,9 +122,10 @@ function selectAnswer(e) {
       if(correctQuestions === 10) {
         startButton.innerText = "Gefeliciteerd! u heeft alle vragen goed beantwoord";
         startButton.classList.remove("hide");
-      }
+      } else {
     startButton.innerText = "Opnieuw beginnen";
     startButton.classList.remove("hide");
+      }
   }
 }
 
