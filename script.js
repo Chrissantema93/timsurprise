@@ -6,6 +6,8 @@ const answerButtonsElement = document.getElementById("answer-buttons");
 
 let shuffledQuestions, currentQuestionIndex;
 
+let timeout
+
 let goedeAntwoordenAudio = [
   "Dat is wel mooi natuurlijk.mp3",
   "Gha ha ha ha.mp3",
@@ -64,6 +66,7 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
+     timeout = setTimeout(geefEensAntwoord, 5000)
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
     const button = document.createElement("button");
@@ -89,6 +92,7 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
+  window.clearTimeout(timeout)
   if (correct) {
       if(e.target.innerText === "5 euros"){
         let audio = new Audio("media/5 Euro's.. Op Je Muil, Gauw!.mp3");
