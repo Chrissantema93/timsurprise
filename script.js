@@ -4,6 +4,8 @@ const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const instructies = document.getElementById("instructies");
+const hoeveelgoed = document.getElementById("hoeveel-goed")
+const hoeveelgoedspan = document.getElementById("hoeveel-goed-span")
 
 let shuffledQuestions, currentQuestionIndex;
 
@@ -80,6 +82,7 @@ function geefEensAntwoord() {
 function startGame() {
   startButton.classList.add("hide");
   instructies.classList.add("hide");
+  hoeveelgoed.classList.remove('hide');
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
@@ -123,6 +126,7 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct;
   window.clearTimeout(timeout)
   if (correct) {
+      
       if(e.target.innerText === "5 euros"){
         let audio = new Audio("media/5 Euro's.. Op Je Muil, Gauw!.mp3");
         audio.play();
@@ -137,6 +141,7 @@ function selectAnswer(e) {
       (x) => x !== randomGeluid
     );}
     correctQuestions++
+    hoeveelgoedspan.innerText = correctQuestions
 
   } else {
     randomGeluid =
