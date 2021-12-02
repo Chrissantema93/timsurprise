@@ -28,7 +28,7 @@ let fouteAntwoordenAudio = [
   "We hebben geen tyfus aan die zwerver joh.mp3",
   "Je heb altijd een grote muil gehad.mp3",
   "Kijk, je moet je eigen anpassen.mp3",
-  "Dááágg.mp3"
+  "Dag.mp3"
 ];
 
 let correctQuestions = 0
@@ -83,7 +83,6 @@ function resetState() {
 
 function selectAnswer(e) {
   const selectedButton = e.target;
-  console.log(e.target.innerText)
   const correct = selectedButton.dataset.correct;
   if (correct) {
       if(e.target.innerText === "5 euros"){
@@ -104,7 +103,7 @@ function selectAnswer(e) {
   } else {
     randomGeluid =
       fouteAntwoordenAudio[
-        Math.floor(Math.random() * goedeAntwoordenAudio.length)
+        Math.floor(Math.random() * fouteAntwoordenAudio.length)
       ];
     let audio = new Audio(`media/${randomGeluid}`);
     audio.play();
