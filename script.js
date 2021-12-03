@@ -17,7 +17,7 @@ let goedeAntwoordenAudio = [
   "Nou weet je wat werken is.mp3",
   "Je moet gewoon kijken, hoe de baas het doet hééé.mp3",
   "Ja, Ja, Ja, wel waar Jos.mp3",
-    "Can You Hear Me.mp3",
+  "Can You Hear Me.mp3",
   "U ken doorgaan.mp3",
   "We zijn net de soos, kinderen van de soos.mp3",
   "Denkt erom hoor, dat ik er 1 ben.mp3"
@@ -87,6 +87,7 @@ function startGame() {
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
   correctQuestions = 0
+  hoeveelgoedspan.innerText = correctQuestions
   goedeAntwoordenAudioTemp = goedeAntwoordenAudio
   fouteAntwoordenAudioTemp = fouteAntwoordenAudio
   setNextQuestion();
