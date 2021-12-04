@@ -220,7 +220,7 @@ const questions = [
     question:
       "Hoeveel watertorens zijn er geweest voor de huidige watertoren??",
     answers: [
-      { text: "0 dit is de eerste", correct: false },
+      { text: "geen", correct: false },
       { text: "1", correct: false },
       { text: "2", correct: true },
       { text: "3", correct: false },
@@ -264,21 +264,21 @@ const questions = [
     ],
   },
   {
-    question: "Wie is de penningmeester van de stichting: De vrienden van de watertoren?",
+    question: "Wie was de penningmeester van de stichting: De vrienden van de watertoren?",
     answers: [
-      { text: "Niemand", correct: false },
-      { text: "Jerome", correct: false },
-      { text: "Tim Santema", correct: true },
-      { text: "Bob de huisbaas", correct: false },
+      { text: "Kees Poot", correct: false },
+      { text: "Jerome Rijkuiter", correct: false },
+      { text: "Wout van Dooren", correct: true },
+      { text: "Dick Wieringa", correct: false },
     ],
   },
   {
     question: "Wat is eigenlijk de functie van een watertoren??",
     answers: [
       { text: "Druk creeeren", correct: true },
-      { text: "Puur en enkel alleen wateropslag", correct: false },
-      { text: "Water beschermen tegen bevriezing", correct: false },
-      { text: "Reiniging van het water", correct: false },
+      { text: "Alleen opslag", correct: false },
+      { text: "Beschermen tegen bevriezing", correct: false },
+      { text: "Reiniging", correct: false },
     ],
   },
 
