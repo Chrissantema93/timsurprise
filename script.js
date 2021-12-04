@@ -268,12 +268,12 @@ const questions = [
     answers: [
       { text: "Kees Poot", correct: false },
       { text: "Jerome Rijkuiter", correct: false },
-      { text: "Wout van Dooren", correct: true },
-      { text: "Dick Wieringa", correct: false },
+      { text: "Wout van Dooren", correct: false },
+      { text: "Dick Wieringa", correct: true },
     ],
   },
   {
-    question: "Wat is eigenlijk de functie van een watertoren??",
+    question: "Wat is eigenlijk de functie van de watertoren??",
     answers: [
       { text: "Druk creeeren", correct: true },
       { text: "Alleen opslag", correct: false },
